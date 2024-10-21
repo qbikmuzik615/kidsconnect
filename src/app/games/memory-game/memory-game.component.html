@@ -1,0 +1,15 @@
+<ActionBar title="Memory Game"></ActionBar>
+
+<GridLayout rows="auto, *, auto" class="p-4">
+  <Label text="Match the cards!" class="text-lg font-bold mb-2" row="0"></Label>
+  <GridLayout rows="*, *, *" columns="*, *, *" row="1">
+    <Label *ngFor="let card of cards; let i = index" 
+           [text]="card.isFlipped ? card.value : '?'"
+           (tap)="flipCard(card)"
+           [row]="i / 3 | number:'1.0-0'" 
+           [col]="i % 3"
+           class="card text-center p-4 m-1" 
+           [ngClass]="{'bg-blue-200': card.isFlipped, 'bg-gray-200': !card.isFlipped}"></Label>
+  </GridLayout>
+  <Label [text]="isMyTurn ? 'Your turn' : 'Opponent\'s turn'" class="text-center" row="2"></Label>
+</GridLayout>

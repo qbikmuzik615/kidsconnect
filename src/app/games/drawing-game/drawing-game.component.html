@@ -1,0 +1,14 @@
+<ActionBar title="Drawing Game"></ActionBar>
+
+<GridLayout rows="auto, *, auto" class="p-4">
+  <Label text="Draw together!" class="text-lg font-bold mb-2" row="0"></Label>
+  <ContentView row="1">
+    <Canvas #canvas (pan)="onPan($event)" (panStart)="onPanStart($event)" (panEnd)="onPanEnd()"></Canvas>
+  </ContentView>
+  <StackLayout row="2" orientation="horizontal" class="m-2">
+    <Button text="Red" (tap)="changeColor('red')" class="btn btn-danger m-1"></Button>
+    <Button text="Blue" (tap)="changeColor('blue')" class="btn btn-primary m-1"></Button>
+    <Button text="Green" (tap)="changeColor('green')" class="btn btn-success m-1"></Button>
+    <Button text="Clear" (tap)="clearCanvas()" class="btn btn-outline m-1"></Button>
+  </StackLayout>
+</GridLayout>

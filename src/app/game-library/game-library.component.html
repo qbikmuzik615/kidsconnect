@@ -1,0 +1,10 @@
+<ActionBar title="Game Library"></ActionBar>
+
+<ListView [items]="games" class="list-group">
+  <ng-template let-game="item">
+    <StackLayout class="list-group-item" (tap)="startGame(game.id)">
+      <Label [text]="game.name" class="text-lg font-bold"></Label>
+      <Label [text]="game.description" class="text-sm text-gray-500"></Label>
+    </StackLayout>
+  </ng-template>
+</ListView>
